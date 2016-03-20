@@ -1,0 +1,147 @@
+<html>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"
+        integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="" id="loginModal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3>Have an Account?</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="well">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+                            <li><a href="#create" data-toggle="tab">Create Account</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane active in" id="login">
+                                <form id="formlogin" class="form-horizontal" action="/api/login">
+                                    <fieldset>
+                                        <div id="legend">
+                                            <legend class="">Login</legend>
+                                        </div>
+                                        <div class="control-group">
+                                            <!-- Username -->
+                                            <label class="control-label" for="email">Username</label>
+                                            <div class="controls">
+                                                <input type="text" id="email" name="email" placeholder=""
+                                                       class="input-xlarge">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <!-- Password-->
+                                            <label class="control-label" for="password">Password</label>
+                                            <div class="controls">
+                                                <input type="password" id="password" name="password" placeholder=""
+                                                       class="input-xlarge">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <br>
+                                    <div class="control-group">
+                                        <!-- Button -->
+                                        <div class="controls">
+                                            <button type="submit" class="btn btn-success">Login</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="create">
+                                <form id="formcreate" id="tab" action="/api/register">
+                                    <fieldset>
+                                        <div id="legend">
+                                            <legend class="">Create</legend>
+                                        </div>
+                                        <div class="control-group">
+                                            <!-- Username -->
+                                            <label class="control-label" for="firstname">First Name</label>
+                                            <div class="controls">
+                                                <input type="text" id="firstname" name="firstname" placeholder=""
+                                                       class="input-xlarge">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <!-- Username -->
+                                            <label class="control-label" for="lastname">Last Name</label>
+                                            <div class="controls">
+                                                <input type="text" id="lastname" name="lastname" placeholder=""
+                                                       class="input-xlarge">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <!-- Username -->
+                                            <label class="control-label" for="email">Email</label>
+                                            <div class="controls">
+                                                <input type="text" id="email" name="email" placeholder=""
+                                                       class="input-xlarge">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <!-- Username -->
+                                            <label class="control-label" for="password">Password</label>
+                                            <div class="controls">
+                                                <input type="password" id="password" name="password" placeholder=""
+                                                       class="input-xlarge">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <br>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Create Account</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="result alert"></div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('form').on('submit', function (e) {
+            var form = $(this);
+
+            e.preventDefault();
+
+            var data = {};
+            $(this).find('input').each(function () {
+                var input = $(this);
+                data[ input.attr('name') ] = input.val();
+            });
+
+            $(".result").removeClass('bg-success bg-danger').html('');
+
+            $.post(form.attr('action'), data, function (response) {
+                console.log(response)
+                var text = JSON.stringify(response);
+                text += '<br><br>data:<br>' + JSON.stringify(data);
+                $(".result").addClass('bg-success').html(text);
+            }).fail(function (response) {
+                var text = JSON.stringify(response.responseText);
+                text += '<br><br>data:<br>' + JSON.stringify(data);
+                $(".result").addClass('bg-danger').html(text);
+            })
+        });
+    });
+
+</script>
+
+</html>

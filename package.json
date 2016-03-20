@@ -1,0 +1,39 @@
+{
+  "name": "cliostats-api",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "nodemon ./server/index.js",
+    "standard": "standard",
+    "test": "lab -v -r console"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "boom": "^3.1.2",
+    "catbox-redis": "^1.0.7",
+    "glob": "^7.0.3",
+    "glue": "^3.2.0",
+    "good": "^6.6.0",
+    "good-console": "^5.3.1",
+    "good-logentries": "^2.0.2",
+    "hapi": "^13.1.0",
+    "hoek": "^3.0.4",
+    "indicative": "^2.0.6",
+    "inert": "^3.2.0",
+    "joi": "^8.0.4",
+    "lodash": "^4.6.1",
+    "mongoose": "^4.4.6",
+    "mongoose-hidden": "^0.6.1",
+    "mongoose-timestamp": "^0.5.0",
+    "njwt": "^0.2.3",
+    "shortid": "^2.2.4"
+  },
+  "devDependencies": {
+    "code": "^2.1.1",
+    "lab": "^10.3.0",
+    "nodemon": "^1.9.1",
+    "standard": "^6.0.8"
+  }
+}

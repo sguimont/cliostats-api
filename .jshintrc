@@ -1,0 +1,8 @@
+{
+  "node": true,
+  "esnext": true,
+  "predef": [
+    "-Promise"
+  ],
+  "expr": true
+}
