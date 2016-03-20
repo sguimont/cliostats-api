@@ -33,10 +33,7 @@ exports.register = function (server, options, next) {
   mongoose.plugin(require('mongoose-hidden')({
     defaultHidden: {
       _id: true,
-      __v: true,
-      updatedAt: true,
-      createdAt: true,
-      updatedBy: true
+      __v: true
     }
   }));
 
