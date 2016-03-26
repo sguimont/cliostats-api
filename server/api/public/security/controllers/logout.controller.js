@@ -1,7 +1,7 @@
 var Hapi = require('hapi');
 var Joi = require('joi');
 var Boom = require('boom');
-var nJwt = require('nJwt');
+var nJwt = require('njwt');
 
 /**
  * Logout

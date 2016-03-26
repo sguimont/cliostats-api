@@ -1,7 +1,7 @@
 var Promise = require('bluebird');
 var Joi = require('joi');
 var Boom = require('boom');
-var nJwt = require('nJwt');
+var nJwt = require('njwt');
 
 module.exports.config = {
   state: {

@@ -1,7 +1,7 @@
 var Promise = require('bluebird');
 var Boom = require('boom');
 var Hoek = require('hoek');
-var nJwt = Promise.promisifyAll(require('nJwt'));
+var nJwt = Promise.promisifyAll(require('njwt'));
 
 var implementation = function (server, options) {
 
