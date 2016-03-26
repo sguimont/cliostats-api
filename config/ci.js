@@ -1,5 +1,3 @@
-var username = process.env.USER || process.env.USERNAME || process.env.LOGNAME;
-
 module.exports = {
   env: 'ci',
 
