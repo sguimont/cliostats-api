@@ -3,12 +3,12 @@ module.exports = {
 
   connections: {
     api: {
-      labels: [ 'api' ],
-      port: 9000,
+      labels: ['api'],
+      port: process.env.DOKKU_NGINX_PORT || 9000,
       host: '0.0.0.0',
       routes: {
         cors: {
-          origin: [ '*' ]
+          origin: ['*']
         }
       }
     },
@@ -41,5 +41,5 @@ module.exports = {
     models: ROOT + '/models/**/*'
   },
 
-  logging: { log: '*', response: '*' }
+  logging: {log: '*', response: '*'}
 };
