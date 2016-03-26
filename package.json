@@ -2,7 +2,8 @@
   "name": "cliostats-api",
   "version": "0.0.1",
   "scripts": {
-    "start": "nodemon ./server/index.js",
+    "start": "node ./server/index.js",
+    "start-dev": "nodemon ./server/index.js",
     "standard": "standard",
     "test": "lab -v -r console"
   },
