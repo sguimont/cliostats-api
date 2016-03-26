@@ -4,8 +4,7 @@ module.exports = {
   connections: {
     api: {
       labels: ['api'],
-      port: process.env.DOKKU_NGINX_PORT,
-      host: null,
+      port: process.env.PORT || 5000,
       routes: {
         cors: {
           origin: ['*']
