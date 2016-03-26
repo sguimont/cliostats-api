@@ -5,7 +5,7 @@ module.exports = {
     api: {
       labels: ['api'],
       port: process.env.DOKKU_NGINX_PORT || 9000,
-      host: '0.0.0.0',
+      host: null,
       routes: {
         cors: {
           origin: ['*']
